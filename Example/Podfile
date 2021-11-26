@@ -1,0 +1,6 @@
+use_frameworks!
+target 'FR_TABAnimation_Tests' do
+  pod 'FR_TABAnimation', :path => '../'
+  
+  
+end
