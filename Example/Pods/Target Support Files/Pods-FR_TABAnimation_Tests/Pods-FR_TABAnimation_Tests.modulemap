@@ -1,0 +1,6 @@
+framework module Pods_FR_TABAnimation_Tests {
+  umbrella header "Pods-FR_TABAnimation_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

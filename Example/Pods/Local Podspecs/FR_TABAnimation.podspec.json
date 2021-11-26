@@ -1,0 +1,22 @@
+{
+  "name": "FR_TABAnimation",
+  "version": "0.1.0",
+  "summary": "A short description of FR_TABAnimation.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/甄冠卿/FR_TABAnimation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "甄冠卿": "zhenguanqing@126.com"
+  },
+  "source": {
+    "git": "https://github.com/甄冠卿/FR_TABAnimation.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "FR_TABAnimation/Classes/**/*"
+}

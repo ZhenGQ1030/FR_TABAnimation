@@ -1,0 +1,6 @@
+framework module FR_TABAnimation {
+  umbrella header "FR_TABAnimation-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/甄冠卿/FR_TABAnimation'
+  s.homepage         = 'https://github.com/zhenguanqing/FR_TABAnimation'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '甄冠卿' => 'zhenguanqing@126.com' }
-  s.source           = { :git => 'https://github.com/甄冠卿/FR_TABAnimation.git', :tag => s.version.to_s }
+  s.author           = { 'Zhen.GQ' => 'zhenguanqing@126.com' }
+  s.source           = { :git => 'https://github.com/zhenguanqing/FR_TABAnimation.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'

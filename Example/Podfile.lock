@@ -1,0 +1,16 @@
+PODS:
+  - FR_TABAnimation (0.1.0)
+
+DEPENDENCIES:
+  - FR_TABAnimation (from `../`)
+
+EXTERNAL SOURCES:
+  FR_TABAnimation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FR_TABAnimation: 04aec47ac6eb82409886aa4e8823f5831ba6cd63
+
+PODFILE CHECKSUM: 6cd3394e6d50cb5f9614a9b3cc0aec5f04fb5f6d
+
+COCOAPODS: 1.11.2
