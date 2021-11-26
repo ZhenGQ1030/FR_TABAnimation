@@ -22,6 +22,9 @@ static NSString * const kShimmerAnimationKey = @"kShimmerAnimationKey";
                                  layers:(NSArray <TABComponentLayer *> *)layers {
     UIColor *baseColor;
     CGFloat brigtness;
+    NSArray *colors;
+    
+    BOOL autoColor = [TABAnimated sharedAnimated].shimmerAnimation.isShimmerAutoColor;
     
     if (@available(iOS 13.0, *)) {
         if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
@@ -40,16 +43,32 @@ static NSString * const kShimmerAnimationKey = @"kShimmerAnimationKey";
          
     UIColor *resultBrightnessColor = [self _brightenedColor:baseColor brightness:brigtness];
     if (resultBrightnessColor == nil) return;
-
-    NSArray *colors = @[
-                        (id)baseColor.CGColor,
-                        (id)resultBrightnessColor.CGColor,
-                        (id)baseColor.CGColor
-                       ];
+    
+    colors = @[(id)baseColor.CGColor,
+               (id)resultBrightnessColor.CGColor,
+               (id)baseColor.CGColor];
     
     for (TABComponentLayer *layer in layers) {
+        if (autoColor) {
+            baseColor = [UIColor colorWithCGColor:layer.backgroundColor];
+            if (!baseColor) continue;
+            resultBrightnessColor = [self _brightenedColor:baseColor brightness:brigtness];
+            if (resultBrightnessColor == nil) continue;
+            colors = @[(id)baseColor.CGColor,
+                       (id)resultBrightnessColor.CGColor,
+                       (id)baseColor.CGColor];
+        }
         [self _addShimmerAnimationWithLayer:layer colors:colors];
         for (TABComponentLayer *sub in layer.lineLayers) {
+            if (autoColor) {
+                baseColor = [UIColor colorWithCGColor:sub.backgroundColor];
+                if (!baseColor) continue;
+                resultBrightnessColor = [self _brightenedColor:baseColor brightness:brigtness];
+                if (resultBrightnessColor == nil) continue;
+                colors = @[(id)baseColor.CGColor,
+                           (id)resultBrightnessColor.CGColor,
+                           (id)baseColor.CGColor];
+            }
             [self _addShimmerAnimationWithLayer:sub colors:colors];
         }
     }
@@ -82,10 +101,11 @@ static NSString * const kShimmerAnimationKey = @"kShimmerAnimationKey";
             }
         }];
        
+        
         if (baseColor == nil) return;
-       for (TABComponentLayer *layer in layers) {
-           if (layer.colors && [layer animationForKey:kShimmerAnimationKey]) {
-               layer.colors = @[(id)baseColor.CGColor, (id)[self _brightenedColor:baseColor brightness:brigtness].CGColor, (id)baseColor.CGColor];
+        for (TABComponentLayer *layer in layers) {
+            if (layer.colors && [layer animationForKey:kShimmerAnimationKey]) {
+                layer.colors = @[(id)baseColor.CGColor, (id)[self _brightenedColor:baseColor brightness:brigtness].CGColor, (id)baseColor.CGColor];
            }
        }
     }

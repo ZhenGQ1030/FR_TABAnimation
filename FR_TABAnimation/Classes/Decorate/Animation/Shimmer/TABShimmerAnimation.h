@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) TABShimmerDirection shimmerDirection;
 
 /**
+ * 闪光灯是否自动获取元素颜色，如果为true，shimmerBackColor和shimmerBackColorInDarkMode失效
+ */
+@property (nonatomic, assign, getter=isShimmerAutoColor) BOOL shimmerAutoColor;
+
+/**
  * 闪光灯变色值，默认值0xDFDFDF
  */
 @property (nonatomic, strong) UIColor *shimmerBackColor;

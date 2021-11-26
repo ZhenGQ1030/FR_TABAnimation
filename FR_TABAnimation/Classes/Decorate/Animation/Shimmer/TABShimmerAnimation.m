@@ -12,6 +12,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        _shimmerAutoColor = NO;
         _shimmerBackColor = tab_kShimmerBackColor;
         _shimmerBackColorInDarkMode = tab_kDarkBackColor;
         
